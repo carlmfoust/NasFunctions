@@ -1,0 +1,17 @@
+[project]
+name = "nas-functions"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas",
+    "numpy",
+    "scipy",
+    "sqlalchemy",
+    "pymysql",
+    "seaborn",
+    "matplotlib",
+    "requests",
+    "plotly",
+    "psycopg2-binary",
+    "python-dotenv",
+]
