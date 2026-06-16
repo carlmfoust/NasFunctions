@@ -6,13 +6,17 @@ import pandas as pd
 # Data Aquisition
 import sqlalchemy
 from sqlalchemy import text
-import pymysql
+import psycopg2
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Data Vizualization
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-import nasFunctionsUtils as nf
+import nasFunctions.nasFunctionsUtils as nf
 
 #%% Server Connection
 
@@ -22,7 +26,9 @@ import nasFunctionsUtils as nf
 #                      db="nascar")
 # =============================================================================
 
-engine = sqlalchemy.create_engine('mysql+pymysql://root:@127.0.0.1/nascar')
+engine = sqlalchemy.create_engine(
+    f"postgresql+psycopg2://{os.getenv('PG_USER')}:{os.getenv('PG_PASSWORD')}@{os.getenv('PG_HOST')}:{os.getenv('PG_PORT')}/{os.getenv('PG_DBNAME')}"
+)
 
 with engine.begin() as con:
     query = text("""SELECT * FROM cup_laps""")
