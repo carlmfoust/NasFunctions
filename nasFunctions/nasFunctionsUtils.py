@@ -165,7 +165,7 @@ def race_laps_year(year, series = 1):
               t['Name'] = laps['Name'][n]
               t['Name'] = t['Name'].str.replace(r"\(.*\)", "", regex=True)
               t['Name'] = t['Name'].str.replace(r"#", "", regex=True)
-              t['Name'] = t['Name'].str.replace(r"*", "", regex=True)
+              t['Name'] = t['Name'].str.replace(r"\*", "", regex=True)
               t['Name'] = t['Name'].str.replace(r"^\s+|\s+$", "", regex=True)
               t['Name'].str.replace('','')
               t['Num'] = laps['Num'][n]
@@ -215,7 +215,7 @@ def race_laps_race(year, raceID, series = 1):
         t['Name'] = laps['Name'][n]
         t['Name'] = t['Name'].str.replace(r"\(.*\)", "", regex=True)
         t['Name'] = t['Name'].str.replace(r"#", "", regex=True)
-        t['Name'] = t['Name'].str.replace(r"*", "", regex=True)
+        t['Name'] = t['Name'].str.replace(r"\*", "", regex=True)
         t['Name'] = t['Name'].str.replace(r"^\s+|\s+$", "", regex=True)
         t['Name'].str.replace('','')
         t['Num'] = laps['Num'][n]
